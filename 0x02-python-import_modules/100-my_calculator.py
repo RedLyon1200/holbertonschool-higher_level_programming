@@ -4,6 +4,7 @@ if __name__ == '__main__':
 
     def errmsg():
         print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
 
     def ex(a, o, b):
         from calculator_1 import sub, add, mul, div
