@@ -1,2 +1,2 @@
-#!/usr/bin/puthon3
+#!/usr/bin/python3
 print('#pythoniscool')
