@@ -5,4 +5,3 @@ if __name__ == "__main__":
     for i in range(0, len(li)):
         if(li[i][0] != "_" and li[i][1] != "_"):
             print("{:s}".format(li[i]))
-            
