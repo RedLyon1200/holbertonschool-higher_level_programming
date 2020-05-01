@@ -16,11 +16,11 @@ if __name__ == '__main__':
             print(a, o, b, '=', mul(int(a), int(b)))
         else:
             print(a, o, b, '=', div(int(a), int(b)))
-    a = argv[1]
-    b = argv[3]
     if len(argv) != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
+    a = argv[1]
+    b = argv[3]
     o = argv[2]
     if o != '*' and o != '+' and o != '-' and o != '/':
         errmsg()
