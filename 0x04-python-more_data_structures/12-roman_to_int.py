@@ -4,6 +4,8 @@ def roman_to_int(roman_string):
     i = 0
 
     if roman_string.isalpha():
+        if roman_string == None:
+            return 0
         while i < len(roman_string):
             x = roman_string[i]
             if x == 'I':
