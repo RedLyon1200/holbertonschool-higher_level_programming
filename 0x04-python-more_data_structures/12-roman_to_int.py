@@ -20,6 +20,8 @@ def roman_to_int(roman_string):
                 result += 500
             elif x == 'M':
                 result += 1000
+            else:
+                return 0 
             i += 1
         return result
     return 0
