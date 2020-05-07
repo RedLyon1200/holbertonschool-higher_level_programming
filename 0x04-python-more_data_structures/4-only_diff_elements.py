@@ -2,7 +2,7 @@
 def rec(new_list, set):
     for w in set:
         if w in new_list[:]:
-            pos = 1
+            pos = 0
 
             while pos < len(new_list):
                 if new_list[pos] == w:
