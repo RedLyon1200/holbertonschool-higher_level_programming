@@ -1,29 +1,23 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    result = 0
-    i = 0
+    if type(roman_string) is not str or roman_string is None:
+        return 0
 
-    if roman_string.isalpha():
-        if roman_string is None:
-            return 0
-        while i < len(roman_string):
-            x = roman_string[i]
-            if x == 'I':
-                result += 1
-            elif x == 'V':
-                result += 5
-            elif x == 'X':
-                result += 10
-            elif x == 'L':
-                result += 50
-            elif x == 'C':
-                result += 100
-            elif x == 'D':
-                result += 500
-            elif x == 'M':
-                result += 1000
-            else:
-                return 0
-            i += 1
-        return result
-    return 0
+    roman_letters = [
+        ['M', 1000], ['D', 500], ['C', 100],
+        ['L', 50], ['X', 10], ['V', 5], ['I', 1]
+    ]
+    num = 0
+    last = 0
+
+    for letter in roman_string:
+        for elem in roman_letters:
+            if letter == elem[0]:
+                if last == 0 or last >= elem[1]:
+                    num += elem[1]
+                elif last < elem[1]:
+                    num += elem[1] - (last * 2)
+
+                last = elem[1]
+
+    return num
