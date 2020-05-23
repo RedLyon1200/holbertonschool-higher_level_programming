@@ -83,7 +83,7 @@ TypeError: size must be an integer
 
 ╠ str
 
->>> print_square('str')
+>>> print_square('')
 Traceback (most recent call last):
     ...
 TypeError: size must be an integer
@@ -99,7 +99,7 @@ ValueError: size must be >= 0
 
 ╠ negative float
 
->>> print_square(-13.1416)
+>>> print_square(-13.14159)
 Traceback (most recent call last):
     ...
 TypeError: size must be an integer
