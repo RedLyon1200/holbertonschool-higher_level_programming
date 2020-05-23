@@ -1,0 +1,63 @@
+      Santiago Agudelo - Crashed Code
+             ╔══════════════╗
+╔════════════╣ MODULE  INFO ╠════════════╗
+║            ╚══════════════╝            ║
+║              add_integer.              ║
+╚════════════════════════════════════════╝
+
+                        ╔════════╗
+╔═══════════════════════╣ IMPORT ╠══════════════════════╗
+║                       ╚════════╝                      ║
+>>> add_integer = __import__("0-add_integer").add_integer
+
+╚═══════════════════════════════════════════════════════╝
+            ╔════════════════╗
+╔═══════════╣ USING FUNCTION ╠═══════════╗
+            ╚══╦═════════════╝
+               ╠ TEST CASES
+------------------------------------------
+
+
+>>> add_integer(2, 200)
+202
+
+>>> add_integer(0)
+98
+
+>>> add_integer('str')
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(23, 'str')
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer(8, [])
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer([], 8)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer({}, 6)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(6, {})
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer(-8, float("Inf"))
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(10.9999999999999999)
+109
+
+>>> add_integer(10.999999999999999)
+108
+
+>>> add_integer(float("Inf"), 8)
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
