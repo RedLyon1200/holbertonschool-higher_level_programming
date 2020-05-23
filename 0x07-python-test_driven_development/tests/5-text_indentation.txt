@@ -1,0 +1,102 @@
+      Santiago Agudelo - Crashed Code
+             ╔══════════════╗
+╔════════════╣ MODULE  INFO ╠════════════╗
+║            ╚══════════════╝            ║
+║            text_indentation            ║
+╚════════════════════════════════════════╝
+
+                         ╔════════╗
+╔════════════════════════╣ IMPORT ╠═════════════════════════╗
+║                        ╚════════╝                         ║
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+╚═══════════════════════════════════════════════════════════╝
+            ╔════════════════╗
+╔═══════════╣ USING FUNCTION ╠═══════════╗
+            ╚══╦═════════════╝
+               ╠ TEST CASES
+------------------------------------------
+
+
+>>> text = 'Lorem ipsum dolor sit amet'
+
+
+╠ str
+
+>>> text_indentation(text)
+Lorem ipsum dolor sit amet
+
+
+╠ integer
+
+>>> text_indentation(1)
+Traceback (most recent call last):
+   ...
+TypeError: text must be a string
+
+
+╠ float
+
+>>> text_indentation(3.14159265)
+Traceback (most recent call last):
+   ...
+TypeError: text must be a string
+
+
+╠ bool
+
+>>> text_indentation(True)
+Traceback (most recent call last):
+   ...
+TypeError: text must be a string
+
+
+╠ None
+
+>>> text_indentation(None)
+Traceback (most recent call last):
+   ...
+TypeError: text must be a string
+
+
+╠ list
+
+>>> text_indentation([])
+Traceback (most recent call last):
+   ...
+TypeError: text must be a string
+
+
+╠ dic
+
+>>> text_indentation({})
+Traceback (most recent call last):
+   ...
+TypeError: text must be a string
+
+
+╠ tuple
+
+>>> text_indentation(())
+Traceback (most recent call last):
+   ...
+TypeError: text must be a string
+
+
+╠ list
+
+>>> text_indentation([])
+Traceback (most recent call last):
+   ...
+TypeError: text must be a string
+
+╠ list
+
+>>> text_indentation('...message')
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+message
