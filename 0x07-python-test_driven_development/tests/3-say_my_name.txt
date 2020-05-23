@@ -1,0 +1,54 @@
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> name = "Santiago"
+>>> lastname = "Agudelo"
+
+=== === === === Name Validators === === === ===
+
+>>> say_my_name(name, lastname)
+My name is Santiago Agudelo
+
+>>> say_my_name("Agudelo")
+My name is Agudelo 
+
+>>> say_my_name({})
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name([])
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name(())
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name(1)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name(True)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+=== === === Lastname Validators === === ===
+
+>>> say_my_name(name, {})
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name(name, [])
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name(name, ())
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name(name, 1)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name(name, True)
+Traceback (most recent call last):
+TypeError: last_name must be a string
