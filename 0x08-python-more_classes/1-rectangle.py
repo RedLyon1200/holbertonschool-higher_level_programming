@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""[Class Rectangle]
+class Rectangle:
+    """[Class Rectangle]
 
     Raises:
         TypeError: [width must be an integer]
@@ -10,9 +11,6 @@
     Returns:
         [int] -- [width or height of rectangle ]
     """
-
-
-class Rectangle:
     pass
 
     def __init__(self, width=0, height=0):
