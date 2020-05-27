@@ -1,0 +1,42 @@
+ M 0-answer.txt
+ M 1-answer.txt
+ M 10-answer.txt
+ M 11-answer.txt
+ M 12-answer.txt
+ M 13-answer.txt
+ M 14-answer.txt
+ M 15-answer.txt
+ M 16-answer.txt
+ M 17-answer.txt
+ M 18-answer.txt
+ M 2-answer.txt
+ M 20-answer.txt
+ M 21-answer.txt
+ M 22-answer.txt
+ M 23-answer.txt
+ M 24-answer.txt
+ M 25-answer.txt
+ M 26-answer.txt
+ M 27-answer.txt
+ M 28-answer.txt
+ M 3-answer.txt
+ M 4-answer.txt
+ M 5-answer.txt
+ M 6-answer.txt
+ M 7-answer.txt
+ M 8-answer.txt
+ M 9-answer.txt
+?? .gitstatus.txt
+?? 100-magic_string.py
+?? 100-main.py
+?? 101-locked_class.py
+?? 101-main.py
+?? 103-line1.txt
+?? 104-line1.txt
+?? 105-line1.txt
+?? 106-line1.txt
+?? __pycache__/
+?? int.py
+?? main/
+?? string.py
+?? testgit.py
