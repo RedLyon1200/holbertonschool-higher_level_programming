@@ -14,6 +14,7 @@ def add_attribute(own_instance, own_attribute, value):
     Raises:
         TypeError: [can't add new attribute]
     """
+
     if '__dict__' not in dir(own_instance):
         raise TypeError("can't add new attribute")
     setattr(type(own_instance), own_attribute, value)
