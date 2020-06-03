@@ -13,5 +13,5 @@ def read_lines(filename="", nb_lines=0):
         if nb_lines <= 0:
             print(f_obj.read())
         else:
-            contents = f_obj.readlines()
-            print(''.join(contents[:nb_lines]), end='')
+            for count in range(nb_lines):
+                print(f_obj.readline(), end='')
