@@ -11,7 +11,7 @@ def read_lines(filename="", nb_lines=0):
     """
     with open(filename, encoding='UTF-8') as f_obj:
         if nb_lines <= 0:
-            print(f_obj.read())
+            print(f_obj.read(), end='')
         else:
-            for count in range(nb_lines):
-                print(f_obj.readline(), end='')
+            contents = f_obj.readlines()
+            print(''.join(contents[:nb_lines]), end='')
