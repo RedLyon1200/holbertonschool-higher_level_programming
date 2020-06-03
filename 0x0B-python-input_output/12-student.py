@@ -22,7 +22,17 @@ class Student:
     def to_json(self, attrs=None):
         """
         Returns:
-            [list, dictionary, string, integer and boolean]:
-            [the dictionary description with simple data structure]
+            [If attrs is a list of strings, only attribute names contained in
+            this list must be retrieved. Otherwise,
+            all attributes must be retrieved]
         """
-        return self.__dict__
+        my_dic = {}
+
+        if attrs is None:
+            return self.__dict__
+
+        for item in attrs:
+            if hasattr(self, item):
+                my_dic[item] = getattr(self, item)
+
+        return my_dic
