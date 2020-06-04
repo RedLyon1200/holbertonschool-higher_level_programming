@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""[a class Student that defines a student (based on 12-student.py)]"""
+"""[a class Student that defines a student (based on 11-student.py)]"""
 
 
 class Student:
