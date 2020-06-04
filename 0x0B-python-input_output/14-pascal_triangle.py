@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-list of lists of integers representing the Pascal’s triangle
+""" list of lists of integers representing the Pascal’s triangle """
 
 
 def pascal_triangle(n):
