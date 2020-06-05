@@ -8,7 +8,9 @@ from models.base import Base
 class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """[summary]
+        """[Call the super class with id - this super call
+        with use the logic of the __init__ of the Base class
+        Assign each argument width, height, x and y to the right attribute]
 
         Args:
             width ([int]): []
@@ -31,6 +33,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """[width setter]"""
+        integer_validator(self, 'width', value)
         self.__width = value
 
     @property
@@ -41,6 +44,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """[height setter]"""
+        integer_validator(self, 'height', value)
         self.__height = value
 
     @property
@@ -51,6 +55,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """[x setter]"""
+        integer_validator_0(self, 'x', value)
         self.__x = value
 
     @property
@@ -61,4 +66,71 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """[y setter]"""
+        integer_validator_0(self, 'y', value)
         self.__y = value
+
+    def area(self):
+        """
+        Returns:
+            [int] -- [area of Rectangle]
+        """
+        return self.__width * self.__height
+
+    def display(self):
+        """[prints in stdout the Rectangle instance with
+        the character # by taking care of x and y]
+        """
+        print('\n' * self.__y, end='')
+        for height in range(self.__height):
+            print(' ' * self.__x + '#' * self.__width)
+
+    def __str__(self):
+        """
+        Returns:
+            [string] -- [the following rectangle description:
+            [Rectangle] (<id>) <x>/<y> - <width>/<height>]
+        """
+        return '[Rectangle] ({}) {}/{} - {}/{}'\
+            .format(self.id, self.__x, self.__y, self.__width, self.__height)
+
+    def update(self, *args):
+        """[adding the public method def update(self, *args):
+        that assigns an argument to each attribute]
+        """
+        tmp = ['id', 'width', 'height', 'x', 'y']
+        for pos, arg in enumerate(args):
+            setattr(self, tmp[pos], arg)
+
+
+def integer_validator(self, name, value):
+    """[method that validates value]
+
+    Arguments:
+        name {[string]}
+        value {[int]}
+
+    Raises:
+        TypeError: [<name> must be an integer]
+        ValueError: [<name> must be > 0]
+    """
+    if type(value) is not int:
+        raise TypeError('{} must be an integer'.format(name))
+    elif value <= 0:
+        raise ValueError('{} must be > 0'.format(name))
+
+
+def integer_validator_0(self, name, value):
+    """[method that validates value]
+
+    Arguments:
+        name {[string]}
+        value {[int]}
+
+    Raises:
+        TypeError: [<name> must be an integer]
+        ValueError: [<name> must be >= 0]
+    """
+    if type(value) is not int:
+        raise TypeError('{} must be an integer'.format(name))
+    elif value < 0:
+        raise ValueError('{} must be >= 0'.format(name))
