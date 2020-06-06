@@ -93,13 +93,16 @@ class Rectangle(Base):
         return '[Rectangle] ({}) {}/{} - {}/{}'\
             .format(self.id, self.__x, self.__y, self.__width, self.__height)
 
-    def update(self, *args):
-        """[adding the public method def update(self, *args):
-        that assigns an argument to each attribute]
-        """
+    def update(self, *args, **kwargs):
+        """[assigns a key/value argument to attributes]"""
         tmp = ['id', 'width', 'height', 'x', 'y']
         for pos, arg in enumerate(args):
             setattr(self, tmp[pos], arg)
+            tmp[pos] = ''
+        else:
+            for key, value in kwargs.items():
+                if key in tmp:
+                    setattr(self, key, value)
 
 
 def integer_validator(self, name, value):
