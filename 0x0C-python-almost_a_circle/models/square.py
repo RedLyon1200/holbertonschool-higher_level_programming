@@ -14,6 +14,7 @@ class Square(Rectangle):
     Args:
         Rectangle ([cls]): [inherited class]
     """
+    pass
 
     def __init__(self, size, x=0, y=0, id=None):
         """

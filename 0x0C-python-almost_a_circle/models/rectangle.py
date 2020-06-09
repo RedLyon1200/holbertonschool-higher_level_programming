@@ -10,6 +10,7 @@ class Rectangle(Base):
     Args:
         Base ([cls]): [inherited class]
     """
+    pass
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """[Call the super class with id - this super call
