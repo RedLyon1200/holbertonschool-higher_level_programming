@@ -21,15 +21,10 @@ class TestSquare(unittest.TestCase):
         """ print('setUp') """
         Base._Base__nb_objects = 0
 
-    def test_pep8(self):
+    def test_style_pep8(self):
+        """[pep8]"""
         style = pep8.StyleGuide(quiet=True)
-        result = style.check_files(['models/base.py',
-                                    'models/rectangle.py',
-                                    'models/square.py'])
-
-        for key in result.messages:
-            print('{}:{}'.format(key, result.messagges[key]))
-
+        result = style.check_files(['./models/rectangle.py'])
         self.assertEqual(result.total_errors, 0)
 
     def test_sqr_id(self):
