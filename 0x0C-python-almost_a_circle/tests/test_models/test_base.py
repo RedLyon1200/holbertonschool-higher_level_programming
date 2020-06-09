@@ -18,6 +18,13 @@ class TestsBase(unittest.TestCase):
         """ print('setUp') """
         Base._Base__nb_objects = 0
 
+    def test_style_base(self):
+        """test pep8
+        """
+        style = pep8.StyleGuide()
+        m = style.check_files(["models/base.py"])
+        self.assertEqual(m.total_errors, 0, "fix pep8")
+
     def test_id_ok_b(self):
         """[OK]"""
         base = Base()
