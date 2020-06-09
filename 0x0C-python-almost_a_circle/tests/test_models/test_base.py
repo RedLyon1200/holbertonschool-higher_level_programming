@@ -131,11 +131,6 @@ class TestsBase(unittest.TestCase):
         base = Base()
         self.assertEqual(type(base.from_json_string(None)), list)
 
-    @ unittest.expectedFailure
-    def test_id_more_args(self):
-        """[more args]"""
-        base = Base(1, 2)
-
     def test_style_pep8(self):
         """[pep8]"""
         style = pep8.StyleGuide(quiet=True)
