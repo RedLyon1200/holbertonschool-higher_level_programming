@@ -66,9 +66,10 @@ class Base:
         """
         if cls.__name__ == "Square":
             dummy = cls(55)
+            dummy.update(**dictionary)
         elif cls.__name__ == "Rectangle":
-            dummy = cls(55, 56)
-        dummy.update(**dictionary)
+            dummy = cls(55, 40)
+            dummy.update(**dictionary)
         return dummy
 
     @classmethod
