@@ -21,11 +21,12 @@ class TestSquare(unittest.TestCase):
         """ print('setUp') """
         Base._Base__nb_objects = 0
 
-    def test_style_pep8_sq(self):
-        """[pep8]"""
-        style = pep8.StyleGuide(quiet=True)
-        result = style.check_files(['./models/rectangle.py'])
-        self.assertEqual(result.total_errors, 0)
+    def test_style_sq(self):
+        """test pep8
+        """
+        style = pep8.StyleGuide()
+        m = style.check_files(["models/base.py"])
+        self.assertEqual(m.total_errors, 0, "fix pep8")
 
     def test_sqr_id_sq(self):
         """[OK]"""
