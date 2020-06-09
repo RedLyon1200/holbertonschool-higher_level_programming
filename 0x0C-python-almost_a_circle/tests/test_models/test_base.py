@@ -4,7 +4,6 @@ import unittest
 import pep8
 from models.base import Base
 from models.rectangle import Rectangle
-from models.square import Square
 
 
 class TestsBase(unittest.TestCase):
@@ -24,10 +23,10 @@ class TestsBase(unittest.TestCase):
 
     def setUp(self):
         """ print('setUp') """
+        Base._Base__nb_objects = 0
 
     def tearDown(self):
         """ print('tearDown\n') """
-        Base._Baje__nb_objects = 0
 
     def test_id_ok(self):
         """[OK]"""
@@ -39,6 +38,12 @@ class TestsBase(unittest.TestCase):
         self.assertEqual(base.id, 5)
         base = Base(None)
         self.assertEqual(base.id, 3)
+        self.assertEqual(type(base.id), int)
+
+    def test_id_none(self):
+        """[none]"""
+        base = Base(None)
+        self.assertEqual(base.id, 1)
         self.assertEqual(type(base.id), int)
 
     def test_id_neg(self):
@@ -89,22 +94,75 @@ class TestsBase(unittest.TestCase):
         self.assertEqual(base.id, {1, 3, 1, 4})
         self.assertEqual(type(base.id), set)
 
-    def test_instance_id(self):
+    def test_instance(self):
         """[instance of class Base]"""
         base = Base()
         self.assertIsInstance(base, Base)
 
-    @unittest.expectedFailure
+    def test_conflicting_id(self):
+        """[Conflicting id]"""
+        base = Base()
+        base1 = Base(1)
+        self.assertEqual(base1.id, 1)
+        self.assertEqual(type(base.id), int)
+
+    def test_dict_to_string(self):
+        """[dictionary to string]"""
+        base = Base()
+        tmp_dict = {
+            'width': 12,
+            'height': 5,
+            'x': 2,
+            'y': 10,
+            'id': 1
+        }
+        self.assertEqual(type(base.to_json_string(tmp_dict)), str)
+
+    def test_empty_dict(self):
+        """[empty dictionary]"""
+        base = Base()
+        self.assertEqual(base.to_json_string(None), '[]')
+
+    def test_to_dict(self):
+        """[rectangle to dictioanry]"""
+        r = Rectangle(10, 2, 11, 7, id=9)
+        self.assertEqual(type(r.to_dictionary()), dict)
+
+    def test_from_json_str(self):
+        """[from json str]"""
+        base = Base()
+        tmp_dict = '{"width": 10, "height": 2, "x": 4, "y": 7, "id": 1}'
+        self.assertEqual(type(base.from_json_string(tmp_dict)), dict)
+        tmp_dict = '[{"width": 10, "height": 2, "x": 4, "y": 7, "id": 1}]'
+        self.assertEqual(type(base.from_json_string(tmp_dict)), list)
+
+    def test_from_empy_json_str(self):
+        """[empty json str]"""
+        base = Base()
+        self.assertEqual(type(base.from_json_string(None)), list)
+
+    @ unittest.expectedFailure
     def test_id_more_args(self):
         """[more args]"""
         base = Base(1, 2)
 
-    def test_style_base(self):
+    def test_style_pep8(self):
         """[pep8]"""
         style = pep8.StyleGuide()
         m = style.check_files(["models/base.py"])
-        self.assertEqual(m.total_errors, 0, "fix pep8")
+        self.assertEqual(m.total_errors, 0, "F pep8")
+
+    def test_docstring(self):
+        """[docstring]"""
+        self.assertIsNotNone(Base.__doc__)
+        self.assertIsNotNone(Base.__init__.__doc__)
+        self.assertIsNotNone(Base.to_json_string.__doc__)
+        self.assertIsNotNone(Base.save_to_file.__doc__)
+        self.assertIsNotNone(Base.from_json_string.__doc__)
+        self.assertIsNotNone(Base.create.__doc__)
+        self.assertIsNotNone(Base.load_from_file.__doc__)
 
 
 if __name__ == "__main__":
+    """[main]"""
     unittest.main()
