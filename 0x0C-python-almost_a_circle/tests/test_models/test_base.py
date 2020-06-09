@@ -137,15 +137,30 @@ class TestsBase(unittest.TestCase):
         result = style.check_files(['./models/base.py'])
         self.assertEqual(result.total_errors, 0)
 
-    def test_docstring(self):
-        """[docstring]"""
-        self.assertIsNotNone(Base.__doc__)
-        self.assertIsNotNone(Base.__init__.__doc__)
-        self.assertIsNotNone(Base.to_json_string.__doc__)
-        self.assertIsNotNone(Base.save_to_file.__doc__)
-        self.assertIsNotNone(Base.from_json_string.__doc__)
-        self.assertIsNotNone(Base.create.__doc__)
-        self.assertIsNotNone(Base.load_from_file.__doc__)
+    def test_to_file(self):
+        """"[save file]"""
+        r = Rectangle(2, 4)
+        Rectangle.save_to_file([r])
+        a = 0
+        with open("Rectangle.json", "r"):
+            a = 1
+        self.assertEqual(a, 1)
+
+    def test_create(self):
+        """[create]"""
+        r = Rectangle(3, 5, 1)
+        r_dict = r.to_dictionary()
+        r1 = Rectangle.create(**r_dict)
+        self.assertEqual(str(r), str(r1))
+
+    def test_loadFrom(self):
+        """[load]"""
+        s = Square(7, 9, 1)
+        list_squares_input = [s]
+        Square.save_to_file(list_squares_input)
+        li = Square.load_from_file()
+        self.assertEqual(type(li) is list and
+                         li[0].__class__.__name__ is "Square", True)
 
 
 if __name__ == "__main__":
