@@ -52,7 +52,7 @@ class TestSquare(unittest.TestCase):
         sq = Square(5)
         self.assertEqual(sq.width, 5)
 
-    def test_width(self):
+    def test_size(self):
         """[sq size]"""
         sq = Square(5)
         self.assertEqual(sq.size, 5)
