@@ -33,12 +33,12 @@ class Square(Rectangle):
             [Square] (<id>) <x>/<y> - <size>]
         """
         return '[Square] ({}) {}/{} - {}'\
-            .format(self.id, self.x, self.y, self.size)
+            .format(self.id, self.x, self.y, self.width)
 
     @property
     def size(self):
         """[size getter]"""
-        return self.size
+        return self.width
 
     @size.setter
     def size(self, value):
@@ -60,6 +60,7 @@ class Square(Rectangle):
                     setattr(self, key, value)
 
     def to_dictionary(self):
+        """[return dictionary]"""
         return {
             'id': self.id,
             'size': self.size,
