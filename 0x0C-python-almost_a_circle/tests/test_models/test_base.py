@@ -4,6 +4,7 @@ import unittest
 import pep8
 from models.base import Base
 from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestsBase(unittest.TestCase):
@@ -13,20 +14,9 @@ class TestsBase(unittest.TestCase):
     """
     pass
 
-    @classmethod
-    def setUpClass(cls):
-        """ print('setUpClass') """
-
-    @classmethod
-    def tearDownClass(cls):
-        """ print('tearDownClass') """
-
     def setUp(self):
         """ print('setUp') """
         Base._Base__nb_objects = 0
-
-    def tearDown(self):
-        """ print('tearDown\n') """
 
     def test_id_ok(self):
         """[OK]"""
@@ -148,9 +138,9 @@ class TestsBase(unittest.TestCase):
 
     def test_style_pep8(self):
         """[pep8]"""
-        style = pep8.StyleGuide()
-        m = style.check_files(["models/base.py"])
-        self.assertEqual(m.total_errors, 0, "F pep8")
+        style = pep8.StyleGuide(quiet=True)
+        result = style.check_files(['./models/base.py'])
+        self.assertEqual(result.total_errors, 0)
 
     def test_docstring(self):
         """[docstring]"""
