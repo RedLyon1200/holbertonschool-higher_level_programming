@@ -19,13 +19,13 @@ class TestsRectangle(unittest.TestCase):
         """ print('setUp') """
         Base._Base__nb_objects = 0
 
-    def test_style_pep8(self):
+    def test_style_pep8_r(self):
         """[pep8]"""
         style = pep8.StyleGuide(quiet=True)
         result = style.check_files(['./models/rectangle.py'])
         self.assertEqual(result.total_errors, 0)
 
-    def test_rect_id(self):
+    def test_rect_id_r(self):
         """[OK]"""
         r = Rectangle(10, 2)
         self.assertEqual(r.id, 1)
@@ -36,177 +36,177 @@ class TestsRectangle(unittest.TestCase):
         r = Rectangle(10, 10)
         self.assertEqual(r.id, 3)
 
-    def test_subcls(self):
+    def test_subcls_r(self):
         """[sub class]"""
         r = Rectangle(10, 2)
         self.assertTrue(issubclass(Rectangle, Base))
 
-    def test_w_neg(self):
+    def test_w_neg_r(self):
         """[negative width]"""
         with self.assertRaises(ValueError):
             r = Rectangle(-2, 10)
 
-    def test_h_neg(self):
+    def test_h_neg_r(self):
         """[negative height]"""
         with self.assertRaises(ValueError):
             r = Rectangle(2, -10)
 
-    def test_w_str(self):
+    def test_w_str_r(self):
         """[str as width]"""
         with self.assertRaises(TypeError):
             r = Rectangle('', 10)
 
-    def test_h_str(self):
+    def test_h_str_r(self):
         """[str as height]"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, '')
 
-    def test_w_dict(self):
+    def test_w_dict_r(self):
         """[dict as width]"""
         with self.assertRaises(TypeError):
             r = Rectangle({}, 10)
 
-    def test_h_dict(self):
+    def test_h_dict_r(self):
         """[dict as height]"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, {})
 
-    def test_w_tup(self):
+    def test_w_tup_r(self):
         """[tuple as width]"""
         with self.assertRaises(TypeError):
             r = Rectangle((), 10)
 
-    def test_h_tup(self):
+    def test_h_tup_r(self):
         """[tuple as height]"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, ())
 
-    def test_w_list(self):
+    def test_w_list_r(self):
         """[list as width]"""
         with self.assertRaises(TypeError):
             r = Rectangle([], 10)
 
-    def test_h_list(self):
+    def test_h_list_r(self):
         """[list as height]"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, [])
 
-    def test_w_float(self):
+    def test_w_float_r(self):
         """[float as width]"""
         with self.assertRaises(TypeError):
             r = Rectangle(3.14159, 10)
 
-    def test_h_float(self):
+    def test_h_float_r(self):
         """[float as height]"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 3.14159)
 
-    def test_w_none(self):
+    def test_w_none_r(self):
         """[none as width]"""
         with self.assertRaises(TypeError):
             r = Rectangle(None, 10)
 
-    def test_h_none(self):
+    def test_h_none_r(self):
         """[none as height]"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, None)
 
-    def test_w_set(self):
+    def test_w_set_r(self):
         """[set as width]"""
         with self.assertRaises(TypeError):
             r = Rectangle({1}, 10)
 
-    def test_h_set(self):
+    def test_h_set_r(self):
         """[set as height]"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, {1})
 
-    def test_x_neg(self):
+    def test_x_neg_r(self):
         """[negative x]"""
         with self.assertRaises(ValueError):
             r = Rectangle(2, 10, -1)
 
-    def test_y_neg(self):
+    def test_y_neg_r(self):
         """[negative y]"""
         with self.assertRaises(ValueError):
             r = Rectangle(2, 10, 1, -1)
 
-    def test_x_str(self):
+    def test_x_str_r(self):
         """[str as x]"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, '')
 
-    def test_y_str(self):
+    def test_y_str_r(self):
         """[str as y]"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, 1, '')
 
-    def test_x_dict(self):
+    def test_x_dict_r(self):
         """[dict as x]"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, {})
 
-    def test_y_dict(self):
+    def test_y_dict_r(self):
         """[dict as y]"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, 1, {})
 
-    def test_x_tup(self):
+    def test_x_tup_r(self):
         """[tuple as x]"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, ())
 
-    def test_y_tup(self):
+    def test_y_tup_r(self):
         """[tuple as y]"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, 1, ())
 
-    def test_x_list(self):
+    def test_x_list_r(self):
         """[list as x]"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, [])
 
-    def test_y_list(self):
+    def test_y_list_r(self):
         """[list as y]"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, 1, [])
 
-    def test_x_float(self):
+    def test_x_float_r(self):
         """[float as x]"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, 3.14159)
 
-    def test_y_float(self):
+    def test_y_float_r(self):
         """[float as y]"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, 1, 3.14159)
 
-    def test_x_none(self):
+    def test_x_none_r(self):
         """[none as x]"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, None)
 
-    def test_y_none(self):
+    def test_y_none_r(self):
         """[none as y]"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, 1, None)
 
-    def test_x_set(self):
+    def test_x_set_r(self):
         """[set as x]"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, {1})
 
-    def test_y_set(self):
+    def test_y_set_r(self):
         """[set as y]"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, 1, {1})
 
-    def test_area(self):
+    def test_area_r(self):
         """[area]"""
         r = Rectangle(15588, 1200)
         self.assertEqual(r.area(), 18705600)
 
-    def test_display_with_w_and_h(self):
+    def test_display_with_w_and_h_r(self):
         """[stdout w and h]"""
         with io.StringIO() as buff, out(buff):
             r = Rectangle(10, 15)
@@ -214,14 +214,14 @@ class TestsRectangle(unittest.TestCase):
             expected_display = '##########\n' * 15
             self.assertEqual(buff.getvalue(), expected_display)
 
-    def test__str__(self):
+    def test__str___r(self):
         """[__str__ validates]"""
         r = Rectangle(4, 6, 2, 1, 12)
         self.assertEqual(str(r), '[Rectangle] (12) 2/1 - 4/6')
         r = Rectangle(5, 5, 1)
         self.assertEqual(str(r), '[Rectangle] (1) 1/0 - 5/5')
 
-    def test_display_with_x_and_y(self):
+    def test_display_with_x_and_y_r(self):
         """[stdout x and y]"""
         with io.StringIO() as buff, out(buff):
             r1 = Rectangle(2, 3, 2, 2)
@@ -234,7 +234,7 @@ class TestsRectangle(unittest.TestCase):
                 ('  ##\n' * 3) + '---\n' + (' ###\n' * 2)
             self.assertEqual(buff.getvalue(), expected_display)
 
-    def test_update_with_args(self):
+    def test_update_with_args_r(self):
         """[update #0 with *args]"""
         r = Rectangle(10, 11, 12, 13, 55)
         r.update(100, 20, 30, 40, 50)
@@ -244,7 +244,7 @@ class TestsRectangle(unittest.TestCase):
         self.assertEqual(r.x, 40)
         self.assertEqual(r.y, 50)
 
-    def test_update_with_args_and_kwargs(self):
+    def test_update_with_args_and_kwargs_r(self):
         """[update #1 with *args and **kwargs]"""
         r = Rectangle(10, 11, 12, 13, 55)
         r.update(100, 20, id=69)
@@ -259,7 +259,7 @@ class TestsRectangle(unittest.TestCase):
         self.assertEqual(r.y, 3)
         self.assertEqual(r.width, 4)
 
-    def test_docstring(self):
+    def test_docstring_r(self):
         """[docstring]"""
         self.assertIsNotNone(Rectangle.__doc__)
         self.assertIsNotNone(Rectangle.__init__.__doc__)
