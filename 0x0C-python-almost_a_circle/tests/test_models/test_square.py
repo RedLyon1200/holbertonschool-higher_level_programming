@@ -30,6 +30,8 @@ class TestSquare(unittest.TestCase):
         for key in result.messages:
             print('{}:{}'.format(key, result.messagges[key]))
 
+        self.assertEqual(result.total_errors, 0)
+
     def test_sqr_id(self):
         """[OK]"""
         sq = Square(5)
