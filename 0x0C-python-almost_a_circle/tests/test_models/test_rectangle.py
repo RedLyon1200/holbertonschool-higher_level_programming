@@ -15,26 +15,15 @@ class TestsRectangle(unittest.TestCase):
     """
     pass
 
-    @classmethod
-    def setUpClass(cls):
-        """ print('setUpClass') """
-
-    @classmethod
-    def tearDownClass(cls):
-        """ print('tearDownClass') """
-
     def setUp(self):
         """ print('setUp') """
         Base._Base__nb_objects = 0
 
-    def tearDown(self):
-        """ print('tearDown\n') """
-
     def test_style_pep8(self):
         """[pep8]"""
-        style = pep8.StyleGuide()
-        m = style.check_files(["models/rectangle.py"])
-        self.assertEqual(m.total_errors, 0, "F pep8")
+        style = pep8.StyleGuide(quiet=True)
+        result = style.check_files(['./models/rectangle.py'])
+        self.assertEqual(result.total_errors, 0)
 
     def test_rect_id(self):
         """[OK]"""
@@ -165,52 +154,52 @@ class TestsRectangle(unittest.TestCase):
     def test_x_tup(self):
         """[tuple as x]"""
         with self.assertRaises(TypeError):
-            r = Rectangle(2, 10, x=())
+            r = Rectangle(2, 10, ())
 
     def test_y_tup(self):
         """[tuple as y]"""
         with self.assertRaises(TypeError):
-            r = Rectangle(10, 2, y=())
+            r = Rectangle(10, 2, 1, ())
 
     def test_x_list(self):
         """[list as x]"""
         with self.assertRaises(TypeError):
-            r = Rectangle(2, 10, x=[])
+            r = Rectangle(2, 10, [])
 
     def test_y_list(self):
         """[list as y]"""
         with self.assertRaises(TypeError):
-            r = Rectangle(10, 2, y=[])
+            r = Rectangle(10, 2, 1, [])
 
     def test_x_float(self):
         """[float as x]"""
         with self.assertRaises(TypeError):
-            r = Rectangle(2, 10, x=3.14159)
+            r = Rectangle(2, 10, 3.14159)
 
     def test_y_float(self):
         """[float as y]"""
         with self.assertRaises(TypeError):
-            r = Rectangle(10, 2, y=3.14159)
+            r = Rectangle(10, 2, 1, 3.14159)
 
     def test_x_none(self):
         """[none as x]"""
         with self.assertRaises(TypeError):
-            r = Rectangle(2, 10, x=None)
+            r = Rectangle(2, 10, None)
 
     def test_y_none(self):
         """[none as y]"""
         with self.assertRaises(TypeError):
-            r = Rectangle(10, 2, y=None)
+            r = Rectangle(10, 2, 1, None)
 
     def test_x_set(self):
         """[set as x]"""
         with self.assertRaises(TypeError):
-            r = Rectangle(2, 10, x={1})
+            r = Rectangle(2, 10, {1})
 
     def test_y_set(self):
         """[set as y]"""
         with self.assertRaises(TypeError):
-            r = Rectangle(2, 10, y={1})
+            r = Rectangle(2, 10, 1, {1})
 
     def test_area(self):
         """[area]"""
@@ -233,7 +222,7 @@ class TestsRectangle(unittest.TestCase):
         self.assertEqual(str(r), '[Rectangle] (1) 1/0 - 5/5')
 
     def test_display_with_x_and_y(self):
-        """[stdout w and h]"""
+        """[stdout x and y]"""
         with io.StringIO() as buff, out(buff):
             r1 = Rectangle(2, 3, 2, 2)
             r1.display()
