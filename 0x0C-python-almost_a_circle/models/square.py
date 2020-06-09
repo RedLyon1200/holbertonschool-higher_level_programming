@@ -1,7 +1,11 @@
 #!/usr/bin/python3
+"""[summary]
+
+    Returns:
+        [type]: [description]
+    """
 
 from models.rectangle import Rectangle
-from models.base import Base
 
 
 class Square(Rectangle):
