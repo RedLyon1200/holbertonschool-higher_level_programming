@@ -155,3 +155,43 @@ class TestSquare(unittest.TestCase):
         """[set as width]"""
         with self.assertRaises(TypeError):
             r = Rectangle({1})
+
+    def test_y_neg(self):
+        """[negative y]"""
+        with self.assertRaises(ValueError):
+            r = Rectangle(2, 1, -1)
+
+    def test_y_str(self):
+        """[str as y]"""
+        with self.assertRaises(TypeError):
+            r = Rectangle(10, 1, '')
+
+    def test_y_dict(self):
+        """[dict as y]"""
+        with self.assertRaises(TypeError):
+            r = Rectangle(10, 2, {})
+
+    def test_y_tup(self):
+        """[tuple as y]"""
+        with self.assertRaises(TypeError):
+            r = Rectangle(10, 2, ())
+
+    def test_y_list(self):
+        """[list as y]"""
+        with self.assertRaises(TypeError):
+            r = Rectangle(10, 2, [])
+
+    def test_y_float(self):
+        """[float as y]"""
+        with self.assertRaises(TypeError):
+            r = Rectangle(10, 2, 3.14159)
+
+    def test_y_none(self):
+        """[none as y]"""
+        with self.assertRaises(TypeError):
+            r = Rectangle(10, 2, None)
+
+    def test_y_set(self):
+        """[set as y]"""
+        with self.assertRaises(TypeError):
+            r = Rectangle(2, 10, {1})
