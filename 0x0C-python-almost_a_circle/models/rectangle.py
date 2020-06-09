@@ -1,11 +1,16 @@
 #!/usr/bin/python3
-"""[2. First Rectangle
-Write the class Rectangle that inherits from Base]"""
+"""[the class Rectangle that inherits from Base]"""
 
 from models.base import Base
 
 
 class Rectangle(Base):
+    """[the class Rectangle that inherits from Base]
+
+    Args:
+        Base ([cls]): [inherited class]
+    """
+    pass
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """[Call the super class with id - this super call
@@ -94,15 +99,27 @@ class Rectangle(Base):
             .format(self.id, self.__x, self.__y, self.__width, self.__height)
 
     def update(self, *args, **kwargs):
-        """[assigns a key/value argument to attributes]"""
+        """[assigns a values argument to attributes]"""
         tmp = ['id', 'width', 'height', 'x', 'y']
-        for pos, arg in enumerate(args):
-            setattr(self, tmp[pos], arg)
-            tmp[pos] = ''
+        if args:
+            for pos, arg in enumerate(args):
+                setattr(self, tmp[pos], arg)
         else:
+            if len(kwargs) <= 0:
+                return
             for key, value in kwargs.items():
                 if key in tmp:
                     setattr(self, key, value)
+
+    def to_dictionary(self):
+        """[create a dictionary with the representation of the rectangle]"""
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
 
 
 def integer_validator(self, name, value):
