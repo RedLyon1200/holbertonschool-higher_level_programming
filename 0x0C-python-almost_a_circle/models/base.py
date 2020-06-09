@@ -64,9 +64,12 @@ class Base:
         Returns:
             [instane]: [an instance with all attributes already set]
         """
-        r = cls(55, 56)
-        r.update(**dictionary)
-        return r
+        if cls.__name__ == "Square":
+            dummy = cls(55)
+        elif cls.__name__ == "Rectangle":
+            dummy = cls(55, 56)
+        dummy.update(**dictionary)
+        return dummy
 
     @classmethod
     def load_from_file(cls):
