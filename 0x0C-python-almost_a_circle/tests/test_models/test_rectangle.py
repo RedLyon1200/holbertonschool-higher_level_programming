@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""[Test cases por rectangle.py]"""
+"""[Unittest cases por rectangle.py]"""
 import unittest
 import pep8
 from models.rectangle import Rectangle
@@ -46,6 +46,11 @@ class TestsRectangle(unittest.TestCase):
         self.assertEqual(r.id, 12)
         r = Rectangle(10, 10)
         self.assertEqual(r.id, 3)
+
+    def test_subcls(self):
+        """[sub class]"""
+        r = Rectangle(10, 2)
+        self.assertTrue(issubclass(Rectangle, Base))
 
     def test_w_neg(self):
         """[negative width]"""
@@ -100,12 +105,12 @@ class TestsRectangle(unittest.TestCase):
     def test_w_float(self):
         """[float as width]"""
         with self.assertRaises(TypeError):
-            r = Rectangle((), 10)
+            r = Rectangle(3.14159, 10)
 
     def test_h_float(self):
         """[float as height]"""
         with self.assertRaises(TypeError):
-            r = Rectangle(10, ())
+            r = Rectangle(10, 3.14159)
 
     def test_w_none(self):
         """[none as width]"""
@@ -153,19 +158,19 @@ class TestsRectangle(unittest.TestCase):
             r = Rectangle(2, 10, {})
 
     def test_y_dict(self):
-        """[dict as height]"""
+        """[dict as y]"""
         with self.assertRaises(TypeError):
-            r = Rectangle(10, {})
+            r = Rectangle(10, 2, 1, {})
 
     def test_x_tup(self):
         """[tuple as x]"""
         with self.assertRaises(TypeError):
-            r = Rectangle(2, 10, x={})
+            r = Rectangle(2, 10, x=())
 
     def test_y_tup(self):
         """[tuple as y]"""
         with self.assertRaises(TypeError):
-            r = Rectangle(10, 2, y='')
+            r = Rectangle(10, 2, y=())
 
     def test_x_list(self):
         """[list as x]"""
