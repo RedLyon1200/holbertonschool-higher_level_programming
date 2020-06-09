@@ -7,6 +7,7 @@ from models.square import Square
 from models.base import Base
 from contextlib import redirect_stdout as out
 import io
+import os
 
 
 class TestSquare(unittest.TestCase):
@@ -16,26 +17,18 @@ class TestSquare(unittest.TestCase):
     """
     pass
 
-    @classmethod
-    def setUpClass(cls):
-        """ print('setUpClass') """
-
-    @classmethod
-    def tearDownClass(cls):
-        """ print('tearDownClass') """
-
     def setUp(self):
         """ print('setUp') """
         Base._Base__nb_objects = 0
 
-    def tearDown(self):
-        """ print('tearDown\n') """
+    def test_pep8(self):
+        style = pep8.StyleGuide(quiet=True)
+        result = style.check_files(['models/base.py',
+                                    'models/rectangle.py',
+                                    'models/square.py'])
 
-    def test_style_pep8(self):
-        """[pep8]"""
-        style = pep8.StyleGuide()
-        m = style.check_files(["models/square.py"])
-        self.assertEqual(m.total_errors, 0, "F pep8")
+        for key in result.messages:
+            print('{}:{}'.format(key, result.messagges[key]))
 
     def test_sqr_id(self):
         """[OK]"""
