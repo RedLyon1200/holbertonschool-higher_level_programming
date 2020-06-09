@@ -119,14 +119,8 @@ class TestsBase(unittest.TestCase):
         base = Base()
         self.assertEqual(type(base.from_json_string(None)), list)
 
-    def test_style_pep8(self):
-        """[pep8]"""
-        style = pep8.StyleGuide(quiet=True)
-        result = style.check_files(['./models/base.py'])
-        self.assertEqual(result.total_errors, 0)
-
     def test_to_file(self):
-        """"[save file]"""
+        """[save file]"""
         r = Rectangle(2, 4)
         Rectangle.save_to_file([r])
         a = 0
