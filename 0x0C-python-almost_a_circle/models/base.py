@@ -2,6 +2,8 @@
 """[the first class Base]"""
 
 import json
+import csv
+import os
 
 
 class Base:
@@ -85,3 +87,50 @@ class Base:
                 return [cls.create(**item) for item in tmp_dict]
         except IOError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Save to csv file"""
+        tmp_list_two = []
+        for i in list_objs:
+            tmp_list = []
+            dic = i.to_dictionary()
+            tmp_list.append(dic['id'])
+            if cls.__name__ == "Rectangle":
+                tmp_list.append(dic['width'])
+                tmp_list.append(dic['height'])
+            if cls.__name__ == "Square":
+                tmp_list.append(dic['size'])
+            tmp_list.append(dic['x'])
+            tmp_list.append(dic['y'])
+            tmp_list_two.append(tmp_list)
+        with open(cls.__name__ + ".csv", mode='w') as f:
+            csw = csv.writer(f)
+            for i in tmp_list_two:
+                csw.writerow(i)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Load from csv file"""
+        if not os.path.isfile(cls.__name__ + ".csv"):
+            return []
+        ls = []
+        with open(cls.__name__ + ".csv", 'r') as f:
+            csr = csv.reader(f)
+            csr = list(csr)
+            lsdir = []
+            for i in range(len(csr)):
+                dic = {}
+                dic.setdefault('id', int(csr[i][0]))
+                if cls.__name__ == 'Rectangle':
+                    dic.setdefault('width', int(csr[i][1]))
+                    dic.setdefault('height', int(csr[i][2]))
+                if cls.__name__ == 'Square':
+                    dic.setdefault('size', int(csr[i][1]))
+                dic.setdefault('x', int(csr[i][-2]))
+                dic.setdefault('y', int(csr[i][-1]))
+                lsdir.append(dic)
+        for i in lsdir:
+            dummy = cls.create(**i)
+            ls.append(dummy)
+        return ls
