@@ -91,7 +91,7 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """Save to csv file"""
-        tmp_list_two = []
+        tmp_list_2 = []
         for i in list_objs:
             tmp_list = []
             dic = i.to_dictionary()
@@ -103,34 +103,34 @@ class Base:
                 tmp_list.append(dic['size'])
             tmp_list.append(dic['x'])
             tmp_list.append(dic['y'])
-            tmp_list_two.append(tmp_list)
+            tmp_list_2.append(tmp_list)
         with open(cls.__name__ + ".csv", mode='w') as f:
-            csw = csv.writer(f)
-            for i in tmp_list_two:
-                csw.writerow(i)
+            cswriter = csv.writer(f)
+            for i in tmp_list_2:
+                cswriter.writerow(i)
 
     @classmethod
     def load_from_file_csv(cls):
         """Load from csv file"""
         if not os.path.isfile(cls.__name__ + ".csv"):
             return []
-        ls = []
+        tmp_list = []
         with open(cls.__name__ + ".csv", 'r') as f:
-            csr = csv.reader(f)
-            csr = list(csr)
-            lsdir = []
-            for i in range(len(csr)):
+            csreader = csv.reader(f)
+            csreader = list(csreader)
+            list_dir = []
+            for i in range(len(csreader)):
                 dic = {}
-                dic.setdefault('id', int(csr[i][0]))
+                dic.setdefault('id', int(csreader[i][0]))
                 if cls.__name__ == 'Rectangle':
-                    dic.setdefault('width', int(csr[i][1]))
-                    dic.setdefault('height', int(csr[i][2]))
+                    dic.setdefault('width', int(csreader[i][1]))
+                    dic.setdefault('height', int(csreader[i][2]))
                 if cls.__name__ == 'Square':
-                    dic.setdefault('size', int(csr[i][1]))
-                dic.setdefault('x', int(csr[i][-2]))
-                dic.setdefault('y', int(csr[i][-1]))
-                lsdir.append(dic)
-        for i in lsdir:
+                    dic.setdefault('size', int(csreader[i][1]))
+                dic.setdefault('x', int(csreader[i][-2]))
+                dic.setdefault('y', int(csreader[i][-1]))
+                list_dir.append(dic)
+        for i in list_dir:
             dummy = cls.create(**i)
-            ls.append(dummy)
-        return ls
+            tmp_list.append(dummy)
+        return tmp_list
