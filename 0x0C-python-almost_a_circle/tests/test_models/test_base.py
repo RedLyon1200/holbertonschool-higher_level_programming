@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """[Test cases por base.py]"""
+
 import unittest
 import pep8
 from models.base import Base
@@ -12,7 +13,6 @@ class TestsBase(unittest.TestCase):
     Args:
         unittest
     """
-    pass
 
     def setUp(self):
         """ print('setUp') """
@@ -83,18 +83,6 @@ class TestsBase(unittest.TestCase):
         base = Base({1, 3, 1, 4})
         self.assertEqual(base.id, {1, 3, 1, 4})
         self.assertEqual(type(base.id), set)
-
-    def test_instance(self):
-        """[instance of class Base]"""
-        base = Base()
-        self.assertIsInstance(base, Base)
-
-    def test_conflicting_id(self):
-        """[Conflicting id]"""
-        base = Base()
-        base1 = Base(1)
-        self.assertEqual(base1.id, 1)
-        self.assertEqual(type(base.id), int)
 
     def test_dict_to_string(self):
         """[dictionary to string]"""
