@@ -35,6 +35,9 @@ class TestsBase(unittest.TestCase):
         base = Base(None)
         self.assertEqual(base.id, 1)
         self.assertEqual(type(base.id), int)
+        base = Base()
+        self.assertEqual(base.id, 1)
+        self.assertEqual(type(base.id), int)
 
     def test_id_neg(self):
         """[negative]"""
