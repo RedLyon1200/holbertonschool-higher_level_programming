@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""[the class Rectangle that inherits from Base]"""
+"""the class Rectangle that inherits from Base"""
 
 from models.base import Base
 
 
 class Rectangle(Base):
-    """[the class Rectangle that inherits from Base]
+    """the class Rectangle that inherits from Base]
 
     Args:
         Base ([cls]): [inherited class]
@@ -13,7 +13,7 @@ class Rectangle(Base):
     pass
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """[Call the super class with id - this super call
+        """Call the super class with id - this super call
         with use the logic of the __init__ of the Base class
         Assign each argument width, height, x and y to the right attribute]
 
@@ -32,45 +32,45 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """[width getter]"""
+        """width getter"""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """[width setter]"""
+        """width setter"""
         integer_validator(self, 'width', value)
         self.__width = value
 
     @property
     def height(self):
-        """[height getter]"""
+        """height getter"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """[height setter]"""
+        """height setter"""
         integer_validator(self, 'height', value)
         self.__height = value
 
     @property
     def x(self):
-        """[x getter]"""
+        """x getter"""
         return self.__x
 
     @x.setter
     def x(self, value):
-        """[x setter]"""
+        """x setter"""
         integer_validator_0(self, 'x', value)
         self.__x = value
 
     @property
     def y(self):
-        """[y getter]"""
+        """y getter"""
         return self.__y
 
     @y.setter
     def y(self, value):
-        """[y setter]"""
+        """y setter"""
         integer_validator_0(self, 'y', value)
         self.__y = value
 
@@ -82,7 +82,7 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
-        """[prints in stdout the Rectangle instance with
+        """prints in stdout the Rectangle instance with
         the character # by taking care of x and y]
         """
         print('\n' * self.__y, end='')
@@ -99,7 +99,7 @@ class Rectangle(Base):
             .format(self.id, self.__x, self.__y, self.__width, self.__height)
 
     def update(self, *args, **kwargs):
-        """[assigns a values argument to attributes]"""
+        """assigns a values argument to attributes"""
         tmp = ['id', 'width', 'height', 'x', 'y']
         if args:
             for pos, arg in enumerate(args):
@@ -112,7 +112,7 @@ class Rectangle(Base):
                     setattr(self, key, value)
 
     def to_dictionary(self):
-        """[create a dictionary with the representation of the rectangle]"""
+        """create a dictionary with the representation of the rectangle"""
         return {
             'id': self.id,
             'width': self.width,
@@ -123,7 +123,7 @@ class Rectangle(Base):
 
 
 def integer_validator(self, name, value):
-    """[method that validates value]
+    """method that validates value]
 
     Arguments:
         name {[string]}
@@ -140,7 +140,7 @@ def integer_validator(self, name, value):
 
 
 def integer_validator_0(self, name, value):
-    """[method that validates value]
+    """method that validates value]
 
     Arguments:
         name {[string]}
