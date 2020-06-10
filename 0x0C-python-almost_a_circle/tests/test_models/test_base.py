@@ -17,6 +17,7 @@ class TestsBase(unittest.TestCase):
     def setUp(self):
         """ setUp """
         Base._Base__nb_objects = 0
+        self.assertEqual(Base._Base__nb_objects, 0)
 
     def test_pep8_conformance(self):
         """Test that we conform to PEP8."""
