@@ -5,24 +5,24 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """the class Rectangle that inherits from Base]
+    """the class Rectangle that inherits from Base
 
     Args:
-        Base ([cls]): [inherited class]
+        Base cls: inherited class
     """
     pass
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Call the super class with id - this super call
-        with use the logic of the __init__ of the Base class
-        Assign each argument width, height, x and y to the right attribute]
+        with use the logic of the _init__ of the Base class
+        Assign each argument width, height, x and y to the right attribute
 
         Args:
-            width ([int]): []
-            height ([int]): []
-            x (int, optional): []. Defaults to 0.
-            y (int, optional): []. Defaults to 0.
-            id ([id], optional): []. Defaults to None.
+            width int: 
+            height int: 
+            x int, optional: . Defaults to 0.
+            y int, optional: . Defaults to 0.
+            id id, optional: . Defaults to None.
         """
         super().__init__(id)
         self.width = width
@@ -38,7 +38,10 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """width setter"""
-        integer_validator(self, 'width', value)
+        if type(value) is not int:
+            raise TypeError('width must be an integer')
+        elif value <= 0:
+            raise ValueError('width must be > 0')
         self.__width = value
 
     @property
@@ -49,7 +52,10 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """height setter"""
-        integer_validator(self, 'height', value)
+        if type(value) is not int:
+            raise TypeError('height must be an integer')
+        elif value <= 0:
+            raise ValueError('height must be > 0')
         self.__height = value
 
     @property
@@ -60,7 +66,10 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """x setter"""
-        integer_validator_0(self, 'x', value)
+        if type(value) is not int:
+            raise TypeError('x must be an integer')
+        elif value < 0:
+            raise ValueError('x must be >= 0')
         self.__x = value
 
     @property
@@ -71,19 +80,22 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """y setter"""
-        integer_validator_0(self, 'y', value)
+        if type(value) is not int:
+            raise TypeError('y must be an integer')
+        elif value < 0:
+            raise ValueError('y must be >= 0')
         self.__y = value
 
     def area(self):
         """
         Returns:
-            [int] -- [area of Rectangle]
+            int -- area of Rectangle
         """
         return self.__width * self.__height
 
     def display(self):
         """prints in stdout the Rectangle instance with
-        the character # by taking care of x and y]
+        the character # by taking care of x and y
         """
         print('\n' * self.__y, end='')
         for height in range(self.__height):
@@ -92,8 +104,8 @@ class Rectangle(Base):
     def __str__(self):
         """
         Returns:
-            [string] -- [the following rectangle description:
-            [Rectangle] (<id>) <x>/<y> - <width>/<height>]
+            string -- the following rectangle description:
+            Rectangle <id> <x>/<y> - <width>/<height>
         """
         return '[Rectangle] ({}) {}/{} - {}/{}'\
             .format(self.id, self.__x, self.__y, self.__width, self.__height)
@@ -120,37 +132,3 @@ class Rectangle(Base):
             'x': self.x,
             'y': self.y
         }
-
-
-def integer_validator(self, name, value):
-    """method that validates value]
-
-    Arguments:
-        name {[string]}
-        value {[int]}
-
-    Raises:
-        TypeError: [<name> must be an integer]
-        ValueError: [<name> must be > 0]
-    """
-    if type(value) is not int:
-        raise TypeError('{} must be an integer'.format(name))
-    elif value <= 0:
-        raise ValueError('{} must be > 0'.format(name))
-
-
-def integer_validator_0(self, name, value):
-    """method that validates value]
-
-    Arguments:
-        name {[string]}
-        value {[int]}
-
-    Raises:
-        TypeError: [<name> must be an integer]
-        ValueError: [<name> must be >= 0]
-    """
-    if type(value) is not int:
-        raise TypeError('{} must be an integer'.format(name))
-    elif value < 0:
-        raise ValueError('{} must be >= 0'.format(name))
