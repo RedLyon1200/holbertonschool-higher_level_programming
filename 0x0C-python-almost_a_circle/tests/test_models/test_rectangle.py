@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""[Unittest cases por rectangle.py]"""
+"""Unittest cases por rectangle.py"""
 import unittest
 import pep8
 from models.rectangle import Rectangle
@@ -28,7 +28,7 @@ class TestsRectangle(unittest.TestCase):
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_rect_id(self):
-        """[OK]"""
+        """OK"""
         r = Rectangle(10, 2)
         self.assertEqual(r.id, 1)
         r = Rectangle(2, 10)
@@ -39,177 +39,177 @@ class TestsRectangle(unittest.TestCase):
         self.assertEqual(r.id, 3)
 
     def test_subcls(self):
-        """[sub class]"""
+        """sub class"""
         r = Rectangle(10, 2)
         self.assertTrue(issubclass(Rectangle, Base))
 
     def test_w_neg(self):
-        """[negative width]"""
+        """negative width"""
         with self.assertRaises(ValueError):
             r = Rectangle(-2, 10)
 
     def test_h_neg(self):
-        """[negative height]"""
+        """negative height"""
         with self.assertRaises(ValueError):
             r = Rectangle(2, -10)
 
     def test_w_str(self):
-        """[str as width]"""
+        """str as width"""
         with self.assertRaises(TypeError):
             r = Rectangle('', 10)
 
     def test_h_str(self):
-        """[str as height]"""
+        """str as height"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, '')
 
     def test_w_dict(self):
-        """[dict as width]"""
+        """dict as width"""
         with self.assertRaises(TypeError):
             r = Rectangle({}, 10)
 
     def test_h_dict(self):
-        """[dict as height]"""
+        """dict as height"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, {})
 
     def test_w_tup(self):
-        """[tuple as width]"""
+        """tuple as width"""
         with self.assertRaises(TypeError):
             r = Rectangle((), 10)
 
     def test_h_tup(self):
-        """[tuple as height]"""
+        """tuple as height"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, ())
 
     def test_w_list(self):
-        """[list as width]"""
+        """list as width"""
         with self.assertRaises(TypeError):
             r = Rectangle([], 10)
 
     def test_h_list(self):
-        """[list as height]"""
+        """list as height"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, [])
 
     def test_w_float(self):
-        """[float as width]"""
+        """float as width"""
         with self.assertRaises(TypeError):
             r = Rectangle(3.14159, 10)
 
     def test_h_float(self):
-        """[float as height]"""
+        """float as height"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 3.14159)
 
     def test_w_none(self):
-        """[none as width]"""
+        """none as width"""
         with self.assertRaises(TypeError):
             r = Rectangle(None, 10)
 
     def test_h_none(self):
-        """[none as height]"""
+        """none as height"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, None)
 
     def test_w_set(self):
-        """[set as width]"""
+        """set as width"""
         with self.assertRaises(TypeError):
             r = Rectangle({1}, 10)
 
     def test_h_set(self):
-        """[set as height]"""
+        """set as height"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, {1})
 
     def test_x_neg(self):
-        """[negative x]"""
+        """negative x"""
         with self.assertRaises(ValueError):
             r = Rectangle(2, 10, -1)
 
     def test_y_neg(self):
-        """[negative y]"""
+        """negative y"""
         with self.assertRaises(ValueError):
             r = Rectangle(2, 10, 1, -1)
 
     def test_x_str(self):
-        """[str as x]"""
+        """str as x"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, '')
 
     def test_y_str(self):
-        """[str as y]"""
+        """str as y"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, 1, '')
 
     def test_x_dict(self):
-        """[dict as x]"""
+        """dict as x"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, {})
 
     def test_y_dict(self):
-        """[dict as y]"""
+        """dict as y"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, 1, {})
 
     def test_x_tup(self):
-        """[tuple as x]"""
+        """tuple as x"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, ())
 
     def test_y_tup(self):
-        """[tuple as y]"""
+        """tuple as y"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, 1, ())
 
     def test_x_list(self):
-        """[list as x]"""
+        """list as x"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, [])
 
     def test_y_list(self):
-        """[list as y]"""
+        """list as y"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, 1, [])
 
     def test_x_float(self):
-        """[float as x]"""
+        """float as x"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, 3.14159)
 
     def test_y_float(self):
-        """[float as y]"""
+        """float as y"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, 1, 3.14159)
 
     def test_x_none(self):
-        """[none as x]"""
+        """none as x"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, None)
 
     def test_y_none(self):
-        """[none as y]"""
+        """none as y"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, 1, None)
 
     def test_x_set(self):
-        """[set as x]"""
+        """set as x"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, {1})
 
     def test_y_set(self):
-        """[set as y]"""
+        """set as y"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, 1, {1})
 
     def test_area(self):
-        """[area]"""
+        """area"""
         r = Rectangle(15588, 1200)
         self.assertEqual(r.area(), 18705600)
 
     def test_display_with_w_and_h(self):
-        """[stdout w and h]"""
+        """stdout w and h"""
         with io.StringIO() as buff, out(buff):
             r = Rectangle(10, 15)
             r.display()
@@ -217,14 +217,14 @@ class TestsRectangle(unittest.TestCase):
             self.assertEqual(buff.getvalue(), expected_display)
 
     def test__str__(self):
-        """[__str__ validates]"""
+        """__str__ validates"""
         r = Rectangle(4, 6, 2, 1, 12)
         self.assertEqual(str(r), '[Rectangle] (12) 2/1 - 4/6')
         r = Rectangle(5, 5, 1)
         self.assertEqual(str(r), '[Rectangle] (1) 1/0 - 5/5')
 
     def test_display_with_x_and_y(self):
-        """[stdout x and y]"""
+        """stdout x and y"""
         with io.StringIO() as buff, out(buff):
             r1 = Rectangle(2, 3, 2, 2)
             r1.display()
@@ -237,7 +237,7 @@ class TestsRectangle(unittest.TestCase):
             self.assertEqual(buff.getvalue(), expected_display)
 
     def test_update_with_args(self):
-        """[update #0 with *args]"""
+        """update #0 with *args"""
         r = Rectangle(10, 11, 12, 13, 55)
         r.update(100, 20, 30, 40, 50)
         self.assertEqual(r.id, 100)
@@ -247,7 +247,7 @@ class TestsRectangle(unittest.TestCase):
         self.assertEqual(r.y, 50)
 
     def test_update_with_args_and_kwargs(self):
-        """[update #1 with *args and **kwargs]"""
+        """update #1 with *args and **kwargs"""
         r = Rectangle(10, 11, 12, 13, 55)
         r.update(100, 20, id=69)
         self.assertEqual(r.id, 100)
@@ -262,7 +262,7 @@ class TestsRectangle(unittest.TestCase):
         self.assertEqual(r.width, 4)
 
     def test_docstring(self):
-        """[docstring]"""
+        """docstring"""
         self.assertIsNotNone(Rectangle.__doc__)
         self.assertIsNotNone(Rectangle.__init__.__doc__)
         self.assertIsNotNone(Rectangle.width.__doc__)
@@ -277,5 +277,5 @@ class TestsRectangle(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    """[main]"""
+    """main"""
     unittest.main()
