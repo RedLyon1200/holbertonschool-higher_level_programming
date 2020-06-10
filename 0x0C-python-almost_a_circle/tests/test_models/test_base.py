@@ -94,9 +94,9 @@ class TestsBase(unittest.TestCase):
 
     def test_conflicting_id(self):
         """[Conflicting id]"""
-        base = Base()
-        base1 = Base(1)
-        self.assertEqual(base1.id, 1)
+        base = Base(5)
+        base1 = Base(5)
+        self.assertEqual(base1.id, 5)
         self.assertEqual(type(base.id), int)
 
     def test_dict_to_string(self):
