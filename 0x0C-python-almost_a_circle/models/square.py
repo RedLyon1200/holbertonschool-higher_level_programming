@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""[summary]
+"""summary]
 
     Returns:
         [type]: [description]
@@ -9,7 +9,7 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """[the class Square that inherits from Rectangle]
+    """the class Square that inherits from Rectangle]
 
     Args:
         Rectangle ([cls]): [inherited class]
@@ -37,17 +37,17 @@ class Square(Rectangle):
 
     @property
     def size(self):
-        """[size getter]"""
+        """size getter"""
         return self.width
 
     @size.setter
     def size(self, value):
-        """[size setter]"""
+        """size setter"""
         self.width = value
         self.height = value
 
     def update(self, *args, **kwargs):
-        """[assigns a values argument to attributes]"""
+        """assigns a values argument to attributes"""
         tmp = ['id', 'size', 'x', 'y']
         if args:
             for pos, arg in enumerate(args):
@@ -60,7 +60,7 @@ class Square(Rectangle):
                     setattr(self, key, value)
 
     def to_dictionary(self):
-        """[return dictionary]"""
+        """return dictionary"""
         return {
             'id': self.id,
             'size': self.size,
