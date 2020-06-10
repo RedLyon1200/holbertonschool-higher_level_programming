@@ -16,7 +16,7 @@ class TestsRectangle(unittest.TestCase):
     pass
 
     def setUp(self):
-        """ print('setUp') """
+        """ setUp """
         Base._Base__nb_objects = 0
 
     def test_style_rectangle(self):
