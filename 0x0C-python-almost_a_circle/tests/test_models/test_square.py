@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""[Unittest cases por square.py]"""
+"""Unittest cases por square.py"""
 import unittest
 import pep8
 from models.rectangle import Rectangle
@@ -30,7 +30,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_sqr_id(self):
-        """[OK]"""
+        """OK"""
         sq = Square(5)
         self.assertEqual(sq.id, 1)
         sq = Square(2, 1)
@@ -39,28 +39,28 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(sq.id, 55)
 
     def test_subcls(self):
-        """[sub class]"""
+        """sub class"""
         sq = Square(10, 2)
         self.assertTrue(issubclass(Square, Base))
         self.assertTrue(issubclass(Square, Rectangle))
 
     def test_width(self):
-        """[sq width]"""
+        """sq width"""
         sq = Square(5)
         self.assertEqual(sq.width, 5)
 
     def test_size(self):
-        """[sq size]"""
+        """sq size"""
         sq = Square(5)
         self.assertEqual(sq.size, 5)
 
     def test_err_size(self):
-        """[size 0]"""
+        """size 0"""
         with self.assertRaises(ValueError):
             sq = Square(0)
 
     def test_x(self):
-        """[x]"""
+        """x"""
         sq = Square(10, 2)
         self.assertEqual(sq.x, 2)
         sq = Square(10, 3, 2, 5)
@@ -69,121 +69,121 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(sq.x, 1)
 
     def test_x_neg(self):
-        """[negative x]"""
+        """negative x"""
         with self.assertRaises(ValueError):
             r = Rectangle(2, -1)
 
     def test_x_str(self):
-        """[str as x]"""
+        """str as x"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, '')
 
     def test_x_dict(self):
-        """[dict as x]"""
+        """dict as x"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, {})
 
     def test_x_tup(self):
-        """[tuple as x]"""
+        """tuple as x"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, ())
 
     def test_x_list(self):
-        """[list as x]"""
+        """list as x"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, [])
 
     def test_x_float(self):
-        """[float as x]"""
+        """float as x"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 3.14159)
 
     def test_x_none(self):
-        """[none as x]"""
+        """none as x"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, None)
 
     def test_x_set(self):
-        """[set as x]"""
+        """set as x"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, {1})
 
     def test_w_neg(self):
-        """[negative width]"""
+        """negative width"""
         with self.assertRaises(ValueError):
             r = Square(-2)
 
     def test_w_str(self):
-        """[str as width]"""
+        """str as width"""
         with self.assertRaises(TypeError):
             r = Square('')
 
     def test_w_dict(self):
-        """[dict as width]"""
+        """dict as width"""
         with self.assertRaises(TypeError):
             r = Square({})
 
     def test_w_tup(self):
-        """[tuple as width]"""
+        """tuple as width"""
         with self.assertRaises(TypeError):
             r = Square(())
 
     def test_w_list(self):
-        """[list as width]"""
+        """list as width"""
         with self.assertRaises(TypeError):
             r = Square([])
 
     def test_w_float(self):
-        """[float as width]"""
+        """float as width"""
         with self.assertRaises(TypeError):
             r = Rectangle(3.14159)
 
     def test_w_none(self):
-        """[none as width]"""
+        """none as width"""
         with self.assertRaises(TypeError):
             r = Rectangle(None)
 
     def test_w_set(self):
-        """[set as width]"""
+        """set as width"""
         with self.assertRaises(TypeError):
             r = Rectangle({1})
 
     def test_y_neg(self):
-        """[negative y]"""
+        """negative y"""
         with self.assertRaises(ValueError):
             r = Rectangle(2, 1, -1)
 
     def test_y_str(self):
-        """[str as y]"""
+        """str as y"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 1, '')
 
     def test_y_dict(self):
-        """[dict as y]"""
+        """dict as y"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, {})
 
     def test_y_tup(self):
-        """[tuple as y]"""
+        """tuple as y"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, ())
 
     def test_y_list(self):
-        """[list as y]"""
+        """list as y"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, [])
 
     def test_y_float(self):
-        """[float as y]"""
+        """float as y"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, 3.14159)
 
     def test_y_none(self):
-        """[none as y]"""
+        """none as y"""
         with self.assertRaises(TypeError):
             r = Rectangle(10, 2, None)
 
     def test_y_set(self):
-        """[set as y]"""
+        """set as y"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, {1})
