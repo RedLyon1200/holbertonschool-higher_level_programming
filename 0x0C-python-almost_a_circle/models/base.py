@@ -8,7 +8,7 @@ import os
 
 class Base:
     """manage id attribute in all your future classes
-    and to avoid duplicating the same code]
+    and to avoid duplicating the same code
     """
     __nb_objects = 0
 
@@ -16,10 +16,10 @@ class Base:
         """id is not None, assign the public instance attribute id
 
         otherwise, increment __nb_objects and assign the
-        new value to the public instance attribute id]
+        new value to the public instance attribute id
 
         Args:
-            id ([int], optional). Defaults to None.
+            id int, optional. Defaults to None.
         """
         if id is None:
             Base.__nb_objects += 1
@@ -30,13 +30,13 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """JSON is one of the standard formats for sharing
-            data representation.]
+            data representation.
 
         Args:
-            list_dictionaries ([list])
+            list_dictionaries
 
         Returns:
-            [JSON string]: [representation of list_dictionaries]
+            JSON string: representation of list_dictionaries
         """
         if list_dictionaries is None or len(list_dictionaries) <= 0:
             return '[]'
@@ -61,10 +61,10 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """Create, update and return a new Rectangle or Square instance]
+        """Create, update and return a new Rectangle or Square instance
 
         Returns:
-            [instane]: [an instance with all attributes already set]
+            instane: an instance with all attributes already set
         """
         if cls.__name__ == "Square":
             dummy = cls(55)
@@ -76,10 +76,10 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """load information from a file]
+        """load information from a file
 
         Returns:
-            [list]: [list of instances]
+            list: list of instances
         """
         try:
             with open('{}.json'.format(cls.__name__), 'r') as f_obj:
