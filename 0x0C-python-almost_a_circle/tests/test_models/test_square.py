@@ -187,3 +187,8 @@ class TestSquare(unittest.TestCase):
         """set as y"""
         with self.assertRaises(TypeError):
             r = Rectangle(2, 10, {1})
+
+
+if __name__ == "__main__":
+    """main"""
+    unittest.main()
