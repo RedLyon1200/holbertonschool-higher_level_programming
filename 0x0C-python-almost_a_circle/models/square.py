@@ -1,36 +1,36 @@
 #!/usr/bin/python3
-"""summary]
+"""summary
 
     Returns:
-        [type]: [description]
+        type: description
     """
 
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """the class Square that inherits from Rectangle]
+    """the class Square that inherits from Rectangle
 
     Args:
-        Rectangle ([cls]): [inherited class]
+        Rectangle, inherited class
     """
     pass
 
     def __init__(self, size, x=0, y=0, id=None):
         """
         Args:
-            size ([int]): [size of square]
-            x (int, optional): []. Defaults to 0.
-            y (int, optional): []. Defaults to 0.
-            id ([id], optional): []. Defaults to None.
+            size int: size of square
+            x int, optional: . Defaults to 0.
+            y int, optional: . Defaults to 0.
+            id id, optional: . Defaults to None.
         """
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """
         Returns:
-            [string] -- [the following square description:
-            [Square] (<id>) <x>/<y> - <size>]
+            string -- the following square description:
+            Square] <id> <x>/<y> - <size>
         """
         return '[Square] ({}) {}/{} - {}'\
             .format(self.id, self.x, self.y, self.width)
