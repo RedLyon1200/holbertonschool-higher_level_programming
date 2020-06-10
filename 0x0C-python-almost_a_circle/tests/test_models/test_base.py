@@ -18,6 +18,13 @@ class TestsBase(unittest.TestCase):
         """ setUp """
         Base._Base__nb_objects = 0
 
+    def test_pep8_conformance(self):
+        """Test that we conform to PEP8."""
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/base.py'])
+        self.assertEqual(
+            result.total_errors, 0, "Found code style errors (and warnings).")
+
     def test_id_ok(self):
         """OK"""
         base = Base()
@@ -134,14 +141,6 @@ class TestsBase(unittest.TestCase):
         """empty json str"""
         base = Base()
         self.assertEqual(type(base.from_json_string(None)), list)
-
-    def test_style_rectangle(self):
-        """
-        Tests for pep8
-        """
-        style = pep8.StyleGuide(quiet=True)
-        p = style.check_files(['models/base.py'])
-        self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_docstring(self):
         """docstring"""
