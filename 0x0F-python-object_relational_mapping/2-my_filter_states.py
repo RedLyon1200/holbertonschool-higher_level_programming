@@ -7,7 +7,7 @@ import MySQLdb
 from sys import argv
 
 
-if __name__ == "__main__":
+def query():
     """[validate the quantity of arguments passed]
     """
     if len(argv) != 5:
@@ -45,3 +45,7 @@ if __name__ == "__main__":
         print(state)
     cur.close()
     db.close()
+
+
+if __name__ == "__main__":
+    query()
