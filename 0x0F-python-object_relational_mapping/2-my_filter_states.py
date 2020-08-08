@@ -36,12 +36,11 @@ if __name__ == "__main__":
         FROM
             states
         WHERE
-            name = %s
+            name = '{}'
         ORDER BY
-            id ASC
-        """, (search,))
+        id ASC""".format(search))
     states = cur.fetchall()
     for state in states:
         print(state)
-    cursor.close()
+    cur.close()
     db.close()
