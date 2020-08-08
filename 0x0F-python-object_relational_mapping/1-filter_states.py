@@ -24,12 +24,14 @@ if __name__ == "__main__":
             states
         WHERE
             name
-        REGEXP
-            '^N'
+        LIKE BINARY
+            "N%"
         ORDER BY
             id ASC""")
+
     rows = cur.fetchall()
     for row in rows:
         print(row)
+
     cur.close()
     db.close()
