@@ -11,13 +11,23 @@ if __name__ == "__main__":
     """[validate the quantity of arguments passed]
     """
     if len(argv) != 4:
-        print('Usage: 0-select_states username password database')
+        print('Usage: 1-filter_states.py username password database')
         exit(1)
 
     db = MySQLdb.connect('localhost', argv[1], argv[2], argv[3], port=3306)
     cur = db.cursor()
 
-    cur.execute("SELECT * FROM states WHERE name REGEXP '^N' ORDER BY id ASC")
+    cur.execute("""
+        SELECT
+            *
+        FROM
+            states
+        WHERE
+            name
+        REGEXP
+            '^N'
+        ORDER BY
+            id ASC""")
     rows = cur.fetchall()
     for row in rows:
         print(row)
