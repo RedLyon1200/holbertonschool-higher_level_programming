@@ -48,7 +48,11 @@ if __name__ == "__main__":
         """, (search,))
 
     cities = cursor.fetchall()
+    comma = ''
+
     for city in cities:
-        print(city)
+        print('{}{}'.format(comma, city[0]), end='')
+        comma = ', '
+    print()
     cursor.close()
     db.close()
