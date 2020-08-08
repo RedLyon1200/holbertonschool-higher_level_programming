@@ -30,9 +30,17 @@ if __name__ == "__main__":
     )
     cur = db.cursor()
 
-    cur.execute(
-        "SELECT * FROM states WHERE name = '{}' ORDER BY id".format(search))
+    cur.execute("""
+        SELECT
+            *
+        FROM
+            states
+        WHERE
+            name = %s
+        ORDER BY
+        id ASC""", (search,))
     states = cur.fetchall()
     for state in states:
         print(state)
+    cursor.close()
     db.close()
