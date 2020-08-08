@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     cursor.execute("""
         SELECT
-            cities.id, states.name, cities.name
+            cities.id, cities.name, states.name
         FROM
             cities, states
         WHERE
