@@ -41,7 +41,9 @@ if __name__ == "__main__":
             id ASC
         """.format(search))
     states = cur.fetchall()
+
     for state in states:
-        print(state)
+        if state[1] == search:
+            print(state)
     cur.close()
     db.close()
