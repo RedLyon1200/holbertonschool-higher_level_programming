@@ -38,7 +38,8 @@ if __name__ == "__main__":
         WHERE
             name = %s
         ORDER BY
-        id ASC""", (search,))
+            id ASC
+        """, (search,))
     states = cur.fetchall()
     for state in states:
         print(state)
