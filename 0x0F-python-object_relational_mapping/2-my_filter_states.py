@@ -7,7 +7,7 @@ import MySQLdb
 from sys import argv
 
 
-def query():
+if __name__ == "__main__":
     """[validate the quantity of arguments passed]
     """
     if len(argv) != 5:
@@ -36,16 +36,12 @@ def query():
         FROM
             states
         WHERE
-            name = %s
+            name = '{}'
         ORDER BY
             id ASC
-        """, (search,))
+        """.format(search))
     states = cur.fetchall()
     for state in states:
         print(state)
     cur.close()
     db.close()
-
-
-if __name__ == "__main__":
-    query()
