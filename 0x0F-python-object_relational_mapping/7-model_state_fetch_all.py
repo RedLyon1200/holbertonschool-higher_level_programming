@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""[7. All states via SQLAlchemy]
+"""
 
 from model_state import Base, State
 from sys import argv
