@@ -27,7 +27,6 @@ class State(Base):
         unique=True
     )
     name = Column(
-        'name',
         String(128),
         nullable=False
     )
