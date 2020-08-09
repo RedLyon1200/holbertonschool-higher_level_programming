@@ -30,7 +30,3 @@ class State(Base):
         String(128),
         nullable=False
     )
-
-
-if __name__ == "__main__":
-    pass
