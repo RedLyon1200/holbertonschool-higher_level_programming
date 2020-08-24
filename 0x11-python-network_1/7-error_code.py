@@ -3,6 +3,7 @@
 """
 
 import requests
+from sys import argv
 
 
 def fetches(url):
@@ -18,6 +19,6 @@ def fetches(url):
 
 
 if __name__ == "__main__":
-    url = 'https://intranet.hbtn.io/status'
+    url = argv[1]
 
     fetches(url)
