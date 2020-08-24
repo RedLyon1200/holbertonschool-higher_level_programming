@@ -9,12 +9,12 @@ from sys import argv
 def fetches(q=''):
     """[summary]
     """
-    response = requests.post(url, data=q)
+    response = requests.post(url, data={'q': q})
 
     try:
         json_obj = response.json()
         if json_obj:
-            print('[{}] {}'.format(json_obj['id'], json_obj['name']))
+            print('[{}] {}'.format(json_obj.get('id'), json_obj.get('name')))
         else:
             print('No result')
     except ValueError:
