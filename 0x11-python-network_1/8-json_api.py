@@ -14,7 +14,7 @@ def fetches(q=''):
     try:
         json_obj = response.json()
         if json_obj:
-            print(json_obj['id'])
+            print('[{}] {}'.format(json_obj.get('id'), json_obj.get('name')))
         else:
             print('No result')
     except ValueError:
