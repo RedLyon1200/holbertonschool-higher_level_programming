@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 """
+script that fetches url
 """
 import urllib.request
 
 
 def fetche(url):
     """
+    fetches url
     """
     pass
 
