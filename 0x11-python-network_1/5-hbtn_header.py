@@ -11,7 +11,7 @@ def fetches(url):
     """
     response = requests.get(url)
 
-    print('{}'.format(response.headers['X-Request-Id']))
+    print('{}'.format(response.headers.get('X-Request-Id')))
 
 
 if __name__ == "__main__":
