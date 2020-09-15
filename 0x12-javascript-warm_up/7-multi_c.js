@@ -7,4 +7,4 @@ if (num === 'Missing number of occurrences') {
     return;
 }
 
-while (num--) {console.log('C is fun');}
+while (num-- && num >= 0) {console.log('C is fun');}
