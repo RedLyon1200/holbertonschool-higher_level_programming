@@ -4,7 +4,8 @@
 const nums = process.argv;
 nums.splice(0, 2);
 
-function sec_big (list) {
+function sec_big(list) {
+  // searches the second biggest
   if (list.length === 0 || list.length === 1) {
     return 0;
   } else {
