@@ -10,21 +10,21 @@ class Rectangle {
   }
 
   // prints the rectangle using the character X
-  print() {
+  print () {
     for (let y = 0; y < this.height; y++) {
       console.log('X'.repeat(this.width));
     }
   }
 
   // exchanges the width and the height of the rectangle
-  rotate() {
+  rotate () {
     const tmp = this.width;
     this.width = this.height;
     this.height = tmp;
   }
 
   // multiples the width and the height of the rectangle by 2
-  double() {
+  double () {
     this.width *= 2;
     this.height *= 2;
   }
