@@ -10,10 +10,12 @@ request(url, function (err, res, body) {
   } else if (res.statusCode === 200) {
     const data = JSON.parse(body);
     for (const key in data) {
-      if (!(data[key].userId in response)) {
-        response[data[key].userId] = 0;
+      if (data[key].completed) {
+        if (!(data[key].userId in response)) {
+          response[data[key].userId] = 0;
+        }
+        response[data[key].userId]++;
       }
-      response[data[key].userId]++;
     }
     console.log(response);
   }
