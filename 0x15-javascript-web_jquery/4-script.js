@@ -1,4 +1,4 @@
-$('#toggle_header').click(function () {
+$('div#toggle_header').click(function () {
   const header = $('header');
 
   header.toggleClass('green');
